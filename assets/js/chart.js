@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('chart.php')
+    const form = document.getElementById('dataForm');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch('chart.php', {
+            method: 'POST',
+            body: formData
+        })
         .then(response => response.json())
         .then(data => {
             const dates = data.map(item => item[0] + ' ' + item[1]);
@@ -36,4 +46,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+    });
 });
