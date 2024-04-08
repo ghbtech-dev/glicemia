@@ -25,5 +25,4 @@ foreach ($data as $item) {
 }
 
 // Saída dos dados em formato JSON
-echo json_encode($dates);
-
+echo json_encode($data);
