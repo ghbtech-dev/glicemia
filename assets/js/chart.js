@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('chart.php')
+    fetch('assets/php/retrieve.php')
         .then(response => response.json())
         .then(data => {
             const dates = data.map(item => item[0] + ' ' + item[1]);
@@ -36,4 +36,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+
+    const form = document.getElementById('dataForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch('assets/php/insert.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            location.reload(); // Recarrega a página após inserção de dados
+        });
+    });
 });
