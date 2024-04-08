@@ -22,7 +22,9 @@ form {
     margin: 20px auto;
 }
 
-label, input, button {
+label,
+input,
+button {
     margin-bottom: 10px;
 }
 
