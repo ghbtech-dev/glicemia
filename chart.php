@@ -14,5 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data[] = str_getcsv($line);
     }
 
+    header('Content-Type: application/json');
     echo json_encode($data);
 }
